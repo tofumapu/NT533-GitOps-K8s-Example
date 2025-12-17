@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-datetime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-datetime
+  template:
+    metadata:
+      labels:
+        app: flask-datetime
+    spec:
+      containers:
+        - name: flask-datetime
+          image: <DOCKERHUB_USERNAME>/gitops-k8s:latest
+          ports:
+            - containerPort: 5000
